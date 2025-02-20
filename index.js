@@ -9,12 +9,7 @@ const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 // Middleware
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://matrimony-nexus.netlify.app"],
-    credentials: true,
-  })
-);
+
 
 app.use(express.json());
 
