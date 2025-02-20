@@ -9,21 +9,16 @@ const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 // Middleware
-
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://matrimony-nexus.netlify.app"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
-// MongoDB Connection URI
-const uri = `mongodb+srv://${process.env.MATRIMONY_IQ_USER}:${process.env.MATRIMONY_IQ_USER_PASS}@abnahid.cot7i.mongodb.net/?retryWrites=true&w=majority&appName=abnahid`;
 
-// MongoDB Client
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
 
 async function run() {
   try {
