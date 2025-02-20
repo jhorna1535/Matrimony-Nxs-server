@@ -327,7 +327,9 @@ async function run() {
       }
 
       // Age filter
-     
+      if (minAge && maxAge) {
+        filters.age = { $gte: parseInt(minAge), $lte: parseInt(maxAge) };
+      }
 
       const convertCmToHeightString = (cm) => {
         const feet = Math.floor(cm / 30.48);
